@@ -1,0 +1,27 @@
+server:
+  port: 8083
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/orderdb;MODE=LEGACY
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+
+external:
+  client-service: http://localhost:8082
+  product-service: http://localhost:8081

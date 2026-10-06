@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/productdb;MODE=LEGACY
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
